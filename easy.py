@@ -11,7 +11,7 @@ class EasyCommands(commands.Cog):
     @commands.command(name='ban')
     async def ban_user(self, ctx, user: discord.User):
         """Ban a user using a simplified command."""
-        await bot_ban(ctx.guild, user)
+        await bot_ban(ctx.guild, user, ctx)
 
 
 
