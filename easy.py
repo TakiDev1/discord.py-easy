@@ -5,10 +5,13 @@ from utils import bot_kick
 from utils import bot_mute
 import discord
 from discord.ext import commands
+from asyncio import sleep
 
 class EasyCommands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+
+
 
     @commands.command(name='ban')
     @commands.has_permissions(ban_members = True)
@@ -22,10 +25,9 @@ class EasyCommands(commands.Cog):
         await bot_kick(ctx.guild, user, ctx)
 
     @commands.command(name='mute')
-    @commands.has_permissions(mute_members = True)
-    async def mute_user(self, ctx, user: discord.User):
-        """Mute a user using a simplified command."""
-        await bot_mute(ctx.guild, user, ctx)    
+    @commands.has_permissions(mute_members = True)   
+    async def mute(self, guild, user, ctx, duration):
+        await bot_mute(ctx.guild, user, ctx, duration)
 
 
 
