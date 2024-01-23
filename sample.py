@@ -7,7 +7,6 @@ bot = commands.Bot(command_prefix='!')
 
 @bot.command(name='ban')
 async def ban_user(ctx, user: discord.User):
-    """Ban a user using a simplified command."""
     await bot_ban(ctx.guild, user)
 
 # Other bot setup code...
