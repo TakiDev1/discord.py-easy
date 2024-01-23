@@ -4,10 +4,11 @@ import discord
 from discord.ext import commands
 
 
-async def bot_ban(guild, user):
+async def bot_ban(guild, user, ctx):
     """Ban a user using a custom method."""
     try:
         await guild.ban(user)
+        await ctx.send(f"{user.name} has been banned!")
         print(f"{user.name} has been banned.")
     except discord.Forbidden:
         print("Bot doesn't have the 'Ban Members' permission.")
