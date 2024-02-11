@@ -3,9 +3,12 @@
 from utils import bot_ban
 from utils import bot_kick
 from utils import bot_mute
+from utils import ui_send
 import discord
 from discord.ext import commands
 from asyncio import sleep
+
+print("discord.py-easy is working!")
 
 class EasyCommands(commands.Cog):
     def __init__(self, bot):
@@ -29,6 +32,8 @@ class EasyCommands(commands.Cog):
     async def mute(self, guild, user, ctx, duration):
         await bot_mute(ctx.guild, user, ctx, duration)
 
+    @commands.command(name="userinfo")
+    async def ui(ctx, member: discord.Member = None):
+        await ui_send(ctx, member)
 
 
-print("discord.py-easy is working!")
