@@ -4,6 +4,7 @@ import discord
 from discord.ext import commands
 from asyncio import sleep
 
+print("Utils loaded")
 
 async def bot_ban(guild, user, reason, ctx):
     """Ban a user using a custom method."""
@@ -49,5 +50,14 @@ async def bot_mute(guild, user, ctx, duration):
         await ctx.send(f"{user.name} has been unmuted after {duration} seconds.")
 
 
+async def ui_send(ctx, member):
+    member = member or ctx.message.author
+    embed = discord.Embed(title=f"{member.name}'s Information", color=0x00ff00)
+    embed.add_field(name="ID", value=member.id, inline=False)
+    embed.add_field(name="Display Name", value=member.display_name, inline=False)
+    embed.add_field(name="Account Created At", value=member.created_at.strftime("%Y-%m-%d %H:%M:%S"), inline=False)
+    embed.add_field(name="Joined Server At", value=member.joined_at.strftime("%Y-%m-%d %H:%M:%S"), inline=False)
+        
+    await ctx.send(embed=embed)
 
-print("Utils loaded")
+
