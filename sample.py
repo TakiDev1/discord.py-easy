@@ -43,4 +43,4 @@ async def userinfo(ctx, member: discord.Member = None):
 
 
 # Run the bot
-bot.run('MTE5OTI1MjY1NDA5OTAxMzcyMw.GBtoPg.gNNUn86hXW92tjfeOUGGp26uFKy1VLMUHMGBcE')
+bot.run('TOKEN')
