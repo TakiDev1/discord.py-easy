@@ -5,7 +5,7 @@ from discord.ext import commands
 from utils import bot_ban
 from utils import bot_kick
 from utils import bot_mute
-
+from utils import ui_send
 
 
 # Create a bot instance
@@ -33,3 +33,14 @@ async def on_ready():
     print(f'Logged in as {bot.user.name} ({bot.user.id})')
     print(f'Guilds: {len(bot.guilds)}')
     print('------')
+    print("discord.py-easy is working!")
+
+@bot.command(name="ui")
+async def userinfo(ctx, member: discord.Member = None):
+    await ui_send(ctx, member)
+
+# Other bot setup code...
+
+
+# Run the bot
+bot.run('MTE5OTI1MjY1NDA5OTAxMzcyMw.GBtoPg.gNNUn86hXW92tjfeOUGGp26uFKy1VLMUHMGBcE')
